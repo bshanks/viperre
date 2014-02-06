@@ -40,9 +40,11 @@ The relevant section of my .emacs file looks like this:
 
 Viperre is meant to be used with your fingers resting in 'home position' on the 'home row'; that is, your left pinky thru pointer finger should rest on asdf, your thumbs should rest on the spacebar, and your right pointer finger thru pinky on jkl;.
 
-Viperre is a package that builds on top of 'viper'. If you don't already know what viper is, it's a package that causes emacs to have two 'modes', one ('insert mode') for wysiwyg editing of text, and one ('vi mode') for moving around (and other things) using single-key shortcuts. What emacs usually does (if you don't use viper) is similar to viper's 'insert mode'.
+Viperre is a package that builds on top of 'viper'. If you don't already know what viper is, it's a package that causes emacs to have two 'modes', one ('insert mode') for wysiwyg editing of text, and one ('vi mode') for moving around (and other things) using single-key shortcuts (and some multi-key sequences). What emacs usually does (if you don't use viper) is similar to viper's 'insert mode'.
 
 In this tutorial, we assume a qwerty keyboard layout. However, viperre also comes with a colemak keyboard layout, which has a different remapping of commands-to-letters in order to achieve the same commands-to-physical finger/key positions.
+
+## Beginner
 
 ### Switching modes
 
@@ -50,9 +52,7 @@ To switch from vi mode to insert mode, type SPC (the spacebar). To switch from i
 
 ### Moving
 
-#### Primary movement commands
-
-Note that the primary movement commands line on the home positions, that is, the places where your fingers rest on the keyboard:
+Note that the primary movement commands lie on the home positions, that is, the places where your fingers rest on the keyboard:
 
 | command           |key| finger |
 | ---               |---| --- |
@@ -65,45 +65,7 @@ Note that the primary movement commands line on the home positions, that is, the
 | beginning of line | a | left pinky finger |
 | end of line       | ; | right pinky finger |
 | beginning of buffer | A | left pinky finger |
-| end of buffer | O | right pinky finger |
-
-#### Other movement and searching commands
-
-| command           |key| finger |
-| ---               |---| --- |
-| search backwards                      | r | left pointer/index finger, reaching up |
-| search forwards                       | u | right pointer/index finger, reaching up |
-| up by paragraphs                      | e | left middle finger, reaching up |
-| down by paragraphs                    | u | right middle finger, reaching up |
-| search backwards for single character | g | left pointer/index finger, reaching left |
-| search forwards for single character  | h | right pointer/index finger, reaching right |
-| move to matching parens | ` | |
-
-
-#### Saving locations
-
-Registers are identified by single alphabetic letters. Bookmarks are identified by words. I think bookmarks persist across emacs sessions (e.g. when you quit and restart emacs, but registers don't, not sure though.
-
-| command           |key| 
-| ---               |---| 
-| save current cursor location into register R     | m SPC R, where r is a single alphabetic letter | 
-| goto register R                                  | m R, where r is a single alphabetic letter | 
-| save current cursor location into bookmark | w B | 
-| goto bookmark                        | w b | 
-| push current cursor location onto emacs 'mark ring' | m, | 
-| push current cursor location onto emacs 'mark ring', and start selecting text | C-SPC | 
-| cycle thru emacs 'mark ring' | mt | 
-| exchange the cursor position and the emacs 'mark' | m. | 
-| exchange the cursor position and the emacs 'mark', and select everything in between | C-x C-x | 
-
-### Deleting
-
-| command           |key| finger |
-| ---               |---| --- |
-| delete left word  | t | (left pointer/index finger, reaching up right) |
-| delete right word | y | (right pointer/index finger, reaching up left) |
-| delete left letter| b | (left pointer/index finger, reaching down right) |
-| delete right letter| n | (right pointer/index finger, reaching down left) |
+| end of buffer | ; | right pinky finger |
 
 
 ### Undo / redo
@@ -114,16 +76,6 @@ Registers are identified by single alphabetic letters. Bookmarks are identified 
 | undo | z | (left pinky finger, reaching down) |
 | redo | Z | |
 
-
-### Cutting and pasting
-
-| command           |key| finger |
-| ---               |---| --- |
-| cut line  | xx | (left ring finger, reaching down ) |
-| copy line  | cc | (left pointer/index finger, reaching down left) |
-| paste | v | (left pointer/index finger, reaching down ) |
-| cut selected | xt | |
-| copy selected  | ct | |
 
 ### Loading, saving, switching buffers, windows
 
@@ -137,8 +89,79 @@ Registers are identified by single alphabetic letters. Bookmarks are identified 
 | close other windows | w1 | |
 
 
+## Intermediate
 
-There are other key sequences not described in this tutorial.
+### Intermediate movement and searching commands
+
+| command           |key| finger |
+| ---               |---| --- |
+| search backwards                      | r | left pointer/index finger, reaching up |
+| search forwards                       | u | right pointer/index finger, reaching up |
+| up by paragraphs                      | e | left middle finger, reaching up |
+| down by paragraphs                    | u | right middle finger, reaching up |
+
+
+
+### Intermediate Deleting
+
+| command           |key| finger |
+| ---               |---| --- |
+| delete left word  | t | (left pointer/index finger, reaching up right) |
+| delete right word | y | (right pointer/index finger, reaching up left) |
+| delete left letter| b | (left pointer/index finger, reaching down right) |
+| delete right letter| n | (right pointer/index finger, reaching down left) |
+
+
+### Intermediate Cutting and pasting
+
+| command           |key| finger |
+| ---               |---| --- |
+| cut line  | xx | (left ring finger, reaching down ) |
+| copy line  | cc | (left pointer/index finger, reaching down left) |
+| paste | v | (left pointer/index finger, reaching down ) |
+| cut selected | xt | |
+| copy selected  | ct | |
+
+
+## Advanced
+
+I recommend mastering the 'beginner' and 'intermediate' stuff, above, first.
+
+### Advanced moving
+| command           |key| 
+| ---               |---| 
+| search backwards for single character | g | left pointer/index finger, reaching left |
+| search forwards for single character  | h | right pointer/index finger, reaching right |
+| move to matching parens | ` | |
+
+
+### Advanced saving locations
+
+There are three different types of locations to which cursor locations can be saved (and restored from): registers, bookmarks, and the mark ring. The top item in the mark ring is called the 'mark'. Each register, each bookmark, and each item in the mark ring holds one location. The mark ring is like a circular stack.
+
+Registers are identified by single alphabetic letters. Bookmarks are identified by words. I think bookmarks persist across emacs sessions (e.g. when you quit and restart emacs), but registers don't, not sure though.
+
+| command           |key| 
+| ---               |---| 
+| save current cursor location into register R     | m SPC R, where r is a single alphabetic letter | 
+| goto register R                                  | m R, where r is a single alphabetic letter | 
+| save current cursor location into bookmark | w B | 
+| goto bookmark                        | w b | 
+| push current cursor location onto emacs 'mark ring' | m, | 
+| push current cursor location onto emacs 'mark ring', and start selecting text | C-SPC | 
+| cycle thru emacs 'mark ring' | mt | 
+| exchange the cursor position and the emacs 'mark' | m. | 
+| exchange the cursor position and the emacs 'mark', and select everything in between | C-x C-x | 
+
+### Advanced editing
+
+| command           |key| 
+| ---               |---| 
+| capital/lowercase   | ~ | 
+
+
+
+There are other key sequences not yet described in this tutorial.
 
 
 
