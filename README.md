@@ -49,12 +49,98 @@ In this tutorial, we assume a qwerty keyboard layout. However, viperre also come
 To switch from vi mode to insert mode, type SPC (the spacebar). To switch from insert mode to vi mode, type ESC (the escape key). 
 
 ### Moving
-| up             | f | (left pointer/index finger) |
-| down           | j | (right pointer/index finger) |
-| left by words  | d | (left middle finger) |
-| right by words | k | (right middle finger) |
-| left           | s | (left ring finger) |
-| right          | l | (right ring finger) |
+
+#### Primary movement commands
+
+Note that the primary movement commands line on the home positions, that is, the places where your fingers rest on the keyboard:
+
+| command           |key| finger |
+| ---               |---| --- |
+| up                | f | left pointer/index finger |
+| down              | j | right pointer/index finger |
+| left by words     | d | left middle finger |
+| right by words    | k | right middle finger |
+| left              | s | left ring finger |
+| right             | l | right ring finger |
+| beginning of line | a | left pinky finger |
+| end of line       | ; | right pinky finger |
+| beginning of buffer | A | left pinky finger |
+| end of buffer | O | right pinky finger |
+
+#### Other movement and searching commands
+
+| command           |key| finger |
+| ---               |---| --- |
+| search backwards                      | r | left pointer/index finger, reaching up |
+| search forwards                       | u | right pointer/index finger, reaching up |
+| up by paragraphs                      | e | left middle finger, reaching up |
+| down by paragraphs                    | u | right middle finger, reaching up |
+| search backwards for single character | g | left pointer/index finger, reaching left |
+| search forwards for single character  | h | right pointer/index finger, reaching right |
+| move to matching parens | ` | |
+
+
+#### Saving locations
+
+Registers are identified by single alphabetic letters. Bookmarks are identified by words. I think bookmarks persist across emacs sessions (e.g. when you quit and restart emacs, but registers don't, not sure though.
+
+| command           |key| 
+| ---               |---| 
+| save current cursor location into register R     | m SPC R, where r is a single alphabetic letter | 
+| goto register R                                  | m R, where r is a single alphabetic letter | 
+| save current cursor location into bookmark | w B | 
+| goto bookmark                        | w b | 
+| push current cursor location onto emacs 'mark ring' | m, | 
+| push current cursor location onto emacs 'mark ring', and start selecting text | C-SPC | 
+| cycle thru emacs 'mark ring' | mt | 
+| exchange the cursor position and the emacs 'mark' | m. | 
+| exchange the cursor position and the emacs 'mark', and select everything in between | C-x C-x | 
+
+### Deleting
+
+| command           |key| finger |
+| ---               |---| --- |
+| delete left word  | t | (left pointer/index finger, reaching up right) |
+| delete right word | y | (right pointer/index finger, reaching up left) |
+| delete left letter| b | (left pointer/index finger, reaching down right) |
+| delete right letter| n | (right pointer/index finger, reaching down left) |
+
+
+### Undo / redo
+
+
+| command           |key| finger |
+| ---               |---| --- |
+| undo | z | (left pinky finger, reaching down) |
+| redo | Z | |
+
+
+### Cutting and pasting
+
+| command           |key| finger |
+| ---               |---| --- |
+| cut line  | xx | (left ring finger, reaching down ) |
+| copy line  | cc | (left pointer/index finger, reaching down left) |
+| paste | v | (left pointer/index finger, reaching down ) |
+| cut selected | xt | |
+| copy selected  | ct | |
+
+### Loading, saving, switching buffers, windows
+
+| command           |key| finger |
+| ---               |---| --- |
+| switch buffer (requires ido) | ww | (left ring finger, reaching up) |
+| load file | wf | |
+| save buffer | ws | |
+| close buffer | C-w | |
+| switch to other window | wo | |
+| close other windows | w1 | |
+
+
+
+There are other key sequences not described in this tutorial.
+
+
 
 
 # The map
