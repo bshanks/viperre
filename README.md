@@ -241,3 +241,8 @@ The code consists of two files which may be downloaded from http://bitbucket.org
 
 ### way future, probably won't get to
 "d2t)" should delete text until the second closing parenthese
+
+
+# about
+
+Viperre is written by Bayle Shanks, and is no longer actively developed, although i use it everyday. Much of the actual code was copied-and-pasted and tweaked from other (open-source) projects.
